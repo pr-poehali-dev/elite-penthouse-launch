@@ -8,10 +8,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Icon from '@/components/ui/icon';
 import { penthouses, getMoscowPenthouses, getSpbPenthouses } from '@/data/penthouses';
 import { useToast } from '@/hooks/use-toast';
+import { ThankYouModal } from '@/components/ThankYouModal';
 
 const Index = () => {
   const [leadForm, setLeadForm] = useState({ name: '', phone: '', city: 'moscow', comment: '' });
   const [privacy, setPrivacy] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -35,10 +37,7 @@ const Index = () => {
       });
 
       if (response.ok) {
-        toast({ 
-          title: 'Заявка отправлена', 
-          description: 'Мы свяжемся с вами в ближайшее время' 
-        });
+        setShowThankYou(true);
         setLeadForm({ name: '', phone: '', city: 'moscow', comment: '' });
         setPrivacy(false);
       } else {
@@ -446,6 +445,8 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      <ThankYouModal open={showThankYou} onClose={() => setShowThankYou(false)} />
     </div>
   );
 };
