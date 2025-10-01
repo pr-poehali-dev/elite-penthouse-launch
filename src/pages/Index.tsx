@@ -46,7 +46,7 @@ const Index = () => {
             <a href="#contact" className="text-sm hover:text-gold transition-colors">Контакты</a>
           </nav>
           <Button variant="outline" className="border-gold text-gold hover:bg-gold hover:text-black">
-            +7 (495) 000-00-00
+            +7 (921) 006-6000
           </Button>
         </div>
       </header>
@@ -398,7 +398,7 @@ const Index = () => {
             <div>
               <h4 className="font-semibold mb-4">Контакты</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>+7 (495) 000-00-00</li>
+                <li>+7 (921) 006-6000</li>
                 <li>info@premium-penthouses.ru</li>
                 <li>Москва, ул. Арбат, 1</li>
                 <li>СПб, Невский пр., 1</li>
