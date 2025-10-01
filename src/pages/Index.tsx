@@ -14,7 +14,7 @@ const Index = () => {
   const [privacy, setPrivacy] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!privacy) {
       toast({ 
@@ -24,12 +24,33 @@ const Index = () => {
       });
       return;
     }
-    toast({ 
-      title: 'Заявка отправлена', 
-      description: 'Мы свяжемся с вами в ближайшее время' 
-    });
-    setLeadForm({ name: '', phone: '', city: 'moscow', comment: '' });
-    setPrivacy(false);
+
+    try {
+      const response = await fetch('https://functions.poehali.dev/afbde8b1-2f36-427a-8f6b-d083c11c0311', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(leadForm),
+      });
+
+      if (response.ok) {
+        toast({ 
+          title: 'Заявка отправлена', 
+          description: 'Мы свяжемся с вами в ближайшее время' 
+        });
+        setLeadForm({ name: '', phone: '', city: 'moscow', comment: '' });
+        setPrivacy(false);
+      } else {
+        throw new Error('Failed to send');
+      }
+    } catch (error) {
+      toast({ 
+        title: 'Ошибка отправки', 
+        description: 'Попробуйте позже или позвоните нам',
+        variant: 'destructive'
+      });
+    }
   };
 
   const featuredPenthouses = penthouses.slice(0, 6);

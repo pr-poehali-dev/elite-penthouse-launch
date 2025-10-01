@@ -1,0 +1,20 @@
+{
+  "tests": [
+    {
+      "name": "Test contact form email submission",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван Иванов",
+        "phone": "+7 (921) 123-4567",
+        "city": "moscow",
+        "comment": "Интересует пентхаус на Остоженке"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
