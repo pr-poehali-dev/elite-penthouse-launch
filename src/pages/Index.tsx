@@ -304,12 +304,28 @@ const Index = () => {
             <div>
               <Badge className="mb-4 bg-gold/20 text-gold border-gold">Специальное предложение</Badge>
               <h2 className="text-4xl font-bold mb-6">
-                Подарок к покупке пентхауса — <span className="text-gold">участок 15 соток в Горном Алтае</span>
+                При покупке пентхауса у нас вы получаете один из эксклюзивных бонусов
               </h2>
-              <p className="text-lg text-muted-foreground mb-6">
-                Уникальная возможность: при покупке избранных пентхаусов вы получаете земельный участок 
-                в туристско-рекреационной локации Горного Алтая с природоохранными территориями поблизости.
-              </p>
+              <div className="text-lg mb-6 space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">✨</span>
+                  <p className="text-muted-foreground">
+                    встречу с международным консультантом <strong className="text-foreground">Олегом Лонесом</strong>
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">👑</span>
+                  <p className="text-muted-foreground">
+                    знакомство с <strong className="text-foreground">принцем Монако</strong>
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">🌿</span>
+                  <p className="text-muted-foreground">
+                    или <strong className="text-foreground">15 соток в первом в России Национальном Сафари‑Парк Горного Алтая</strong>
+                  </p>
+                </div>
+              </div>
               
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
